@@ -1,0 +1,11 @@
+{
+    "expenses": [{
+        "id": 1,
+        "name": "expenses 1"
+    },
+    {
+        "id": 2,
+        "name": "expenses 2"
+    }
+]
+}

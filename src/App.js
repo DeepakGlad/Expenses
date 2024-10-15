@@ -1,9 +1,12 @@
 
 import './App.css';
-import {store} from './store';
+
 import { useDispatch, useSelector } from "react-redux";
 import { addExpenses, rmExpenses } from "./store";
 import { useState } from 'react';
+
+import {useFetchExpensesQuery} from './store';
+
 function App() {
   const [expense, setExpense] = useState("");
   const dispatch = useDispatch();
@@ -26,7 +29,12 @@ function App() {
   const rmState = (expenserm)=>{
     dispatch(rmExpenses(expenserm)); 
   }
+  const result = useFetchExpensesQuery('1');
 
+  console.log(result);
+  // const list2 = list1.map((value,index)=>{
+  //   return <p key={index}>{value.name}</p>
+  // })
   const list =  expenseslist.map((value,index)=>{
     return (<p key={index}>{value}<span onClick={()=>rmState(expense)}>X</span></p>);
   })
@@ -37,6 +45,7 @@ function App() {
     
       <button >Subimt</button>
      {list}
+     {/* {list2} */}
       </form>
     </div>
   );
